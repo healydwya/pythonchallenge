@@ -1,0 +1,2 @@
+['*,b,*', 'a,*,*', '*,*,c', 'foo,bar,baz', 'w,x,*,*', '*,x,y,z']
+['/w/x/y/z/', 'a/b/c', 'foo/', 'foo/bar/', 'foo/bar/baz/']
