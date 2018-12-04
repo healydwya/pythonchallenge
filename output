@@ -1,43 +1,5 @@
-*
-*
-*
-a,b,c
-a,b,c
-a,b,c
-a,b,c
-a,b,c
-a,b,c
-a,b,c
-a,b,c
-a,b,c
-a,b,c
-a,b,c
-a,b,c
-a,b,c
-a,b,c
-a,b,c
-A,B,C
-A,B,C
-A,B,C
-A,B,C
-*,b,*
-*,b,*
-*
+*,x,y,z
+a,*,*
+NO MATCH
 NO MATCH
 foo,bar,baz
-NO MATCH
-NO MATCH
-w,x,y,*
-w,x,*,z
-*,x,y,z
-*,x,y,z
-*,x,y,z
-w,x,*,z
-w,x,*,*
-w,x,*,*
-w,x,*,*
-w,x,*,z
-w,x,y,*
-foo,!@#$ %^&*(),*,baz
-foo,!@#$ %^&*(),*,baz
-*,!@#$ %^&*(),*,*

@@ -61,16 +61,9 @@ def wildcardMatch(patternArray):
     lowestIndex = None
     currentIndex = None
     for pattern in patternArray:
-        print pattern
-        try:
-            currentIndex = re.search(r'[^*]', pattern).start()
-            if lowestIndex < currentIndex or lowestIndex == None:
-                lowestIndex = currentIndex
-        except:
-            return
-    try:
-        print patternArray[lowestIndex]
-    except:
-        return
+        currentIndex = re.search(r'[^*]', pattern).start()
+        if lowestIndex < currentIndex or lowestIndex == None:
+            lowestIndex = currentIndex
+    print patternArray[lowestIndex]
             
 readFile(file_name)
