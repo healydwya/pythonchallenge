@@ -1,2 +1,88 @@
-['*,b,*', 'a,*,*', '*,*,c', 'foo,bar,baz', 'w,x,*,*', '*,x,y,z']
-['/w/x/y/z/', 'a/b/c', 'foo/', 'foo/bar/', 'foo/bar/baz/']
+*
+NO MATCH
+*
+NO MATCH
+*
+NO MATCH
+NO MATCH
+*
+NO MATCH
+*
+NO MATCH
+*
+NO MATCH
+NO MATCH
+*
+NO MATCH
+*
+NO MATCH
+*
+NO MATCH
+NO MATCH
+*
+NO MATCH
+*
+NO MATCH
+*
+NO MATCH
+NO MATCH
+*
+NO MATCH
+*
+NO MATCH
+*
+NO MATCH
+NO MATCH
+*
+NO MATCH
+*
+NO MATCH
+*
+NO MATCH
+NO MATCH
+a,b,c
+a,b,c
+a,b,c
+a,b,c
+a,b,c
+a,b,c
+a,b,c
+a,b,c
+a,b,c
+a,b,c
+a,b,c
+a,b,c
+a,b,c
+a,b,c
+a,b,c
+A,B,C
+A,B,C
+A,B,C
+A,B,C
+*,b,*
+*,b,*
+*
+NO MATCH
+*
+NO MATCH
+*
+NO MATCH
+NO MATCH
+NO MATCH
+foo,bar,baz
+NO MATCH
+NO MATCH
+w,x,y,*
+w,x,*,z
+*,x,y,z
+*,x,y,z
+*,x,y,z
+w,x,*,z
+w,x,*,*
+w,x,*,*
+w,x,*,*
+w,x,*,z
+w,x,y,*
+foo,!@#$ %^&*(),*,baz
+foo,!@#$ %^&*(),*,baz
+*,!@#$ %^&*(),*,*
