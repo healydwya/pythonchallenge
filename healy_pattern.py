@@ -7,12 +7,15 @@ file_name = sys.stdin
 def readFile(file):
     patternArray = []
     pathArray = []
-    arrayLength = int(file.readline())
-    for index,line in enumerate(file):
-        if len(patternArray) < arrayLength:
-            patternArray.append(list(filter(None, line.replace('\n', '').split(','))))
-        else:
-            pathArray.append(list(filter(None, line.replace('\n', '').split('/'))))
+    for line in file:
+        try: int(line)
+        except ValueError:
+            if len(patternArray) < arrayLength:
+                patternArray.append(list(filter(None, line.replace('\n', '').split(','))))
+            else:
+                pathArray.append(list(filter(None, line.replace('\n', '').split('/'))))
+        else: 
+            arrayLength = int(line)
 
     getMatchingPatterns(patternArray, pathArray)
 
@@ -64,10 +67,10 @@ def wildcardMatch(patternArray):
             if lowestIndex < currentIndex or lowestIndex == None:
                 lowestIndex = currentIndex
         except:
-            print "NO MATCH"
+            return
     try:
         print patternArray[lowestIndex]
     except:
-        print "NO MATCH"
+        return
             
 readFile(file_name)
