@@ -4,83 +4,83 @@ import re
 
 file_name = sys.stdin
 
-def readFile(file):
-    patternArray = []
-    pathArray = []
+def read_file(file):
+    pattern_array = []
+    path_array = []
     count = 0
-    arraylength = 0
+    array_length = 0
     # sets first list length equal to first integer
     for line in file:
         if count < 1:
-            arraylength = line
+            array_length = line
             count = count + 1
         # filters lists into two separate arrays to compare against each other
         else:
-            if len(patternArray) < int(arraylength):
-                patternArray.append(list(filter(None, line.replace('\n', '').split(','))))
+            if len(pattern_array) < int(array_length):
+                pattern_array.append(list(filter(None, line.replace('\n', '').split(','))))
             else:
-                pathArray.append(list(filter(None, line.replace('\n', '').split('/'))))
+                path_array.append(list(filter(None, line.replace('\n', '').split('/'))))
     
     # removes first integer from second list since it just signifies number of patterns
-    pathArray = pathArray[1:]
+    path_array = path_array[1:]
 
-    getMatchingPatterns(patternArray, pathArray)
+    get_matching_patterns(pattern_array, path_array)
 
-def getMatchingPatterns(patternArray, pathArray):
+def get_matching_patterns(pattern_array, path_array):
     delimeter = ","
     matches = []
     #compares each pattern to each path
-    for paths in pathArray:
+    for paths in path_array:
         matches = []
-        for pattern in patternArray:
+        for pattern in pattern_array:
             # first check if lengths match
             if (len(paths) == len(pattern)):
-                charMatches = 0
+                char_matches = 0
                 # if lengths match check each character individually, add 1 each time a character matches
                 for index,char in enumerate(paths):
                     if pattern[index] == char or pattern[index] == '*':
-                        charMatches = charMatches + 1
+                        char_matches = char_matches + 1
                         # if the length of the path matches the number of characters that matched, mark as a match
-                        if len(paths) == charMatches:
+                        if len(paths) == char_matches:
                             matches.append(delimeter.join(pattern))
         if len(matches) == 0:
-            print "NO MATCH"
+            print("NO MATCH")
         else:
             if len(matches) > 1:
-                groupMatches(matches)
+                group_matches(matches)
             else:
-                print matches[0]
+                print(matches[0])
 
-def groupMatches(matches):
-    lowestCount = None
-    currentCount = None
-    patternArray = []
+def group_matches(matches):
+    lowest_count = None
+    current_count = None
+    pattern_array = []
     # in new array of potential matches to the path, compare number of wildcards in each match
     for match in matches:
-        currentCount = match.count("*")
+        current_count = match.count("*")
         # initialize empty pattern array, add pattern(s) with lowest amount of wildcards to it 
-        if lowestCount > currentCount or lowestCount == None:
-            patternArray = []
-            lowestCount = currentCount
-            patternArray.append(match)
-        elif lowestCount == currentCount:
-            patternArray.append(match)
+        if lowest_count == None or lowest_count > current_count:
+            pattern_array = []
+            lowest_count = current_count
+            pattern_array.append(match)
+        elif lowest_count == current_count:
+            pattern_array.append(match)
     # if there are multiple matches with equal numbers of wildcards, go on to check positioning of them
-    if len(patternArray) > 1 and lowestCount != 0:
-        wildcardMatch(patternArray)
+    if len(pattern_array) > 1 and lowest_count != 0:
+        wildcard_match(pattern_array)
     else:
-        print patternArray[0]
+        print(pattern_array[0])
 
-def wildcardMatch(patternArray):
-    highestindex = None
-    currentindex = None
-    bestpattern = []
-    for index, pattern in enumerate(patternArray):
-        firstwildcard = pattern.index('*')
-        if highestindex == None or highestindex < firstwildcard:
-            highestindex = firstwildcard
-            bestpattern = index
+def wildcard_match(pattern_array):
+    highest_index = None
+    current_index = None
+    best_pattern = []
+    for index, pattern in enumerate(pattern_array):
+        first_wildcard = pattern.index('*')
+        if highest_index == None or highest_index < first_wildcard:
+            highest_index = first_wildcard
+            best_pattern = index
  
-    print patternArray[bestpattern]
+    print(pattern_array[best_pattern])
             
-readFile(file_name)
+read_file(file_name)
